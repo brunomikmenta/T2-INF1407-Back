@@ -25,13 +25,19 @@ SECRET_KEY = "django-insecure-7u4a&p1wqp@or2ae@!+q=zzk#%be)e_r&qxd8#+3fu^4xzi&o_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://0.0.0.0:8080',
-    'http://127.0.0.1:8080',
-    'http://localhost:8080',
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8080",
+    "http://localhost:8080",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8080",
+    "http://localhost:8080",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -50,13 +56,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "T2SiteBack.urls"
