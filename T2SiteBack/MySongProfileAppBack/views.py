@@ -13,38 +13,6 @@ from django.db.models import Q
 
 # Create your views here.
 
-def home(request):
-    return render(request, 'index.html')
-
-def login_page(request):
-    return render(request, 'login.html')
-
-@ensure_csrf_cookie
-def cadastroUsuario(request):
-    return render(request, 'cadastroUsuario.html')
-
-def esqueceuSenha(request):
-    return render(request, 'esqueceuSenha.html')
-
-
-def esqueceuSenhaReset(request):
-    return render(request, 'esqueceuSenhaReset.html')
-
-def perfil(request):
-    return render(request, 'editarPerfil.html')
-
-def createSongListView(request):
-    return redirect('perfil')
-
-
-def edit_song(request, song_id):
-    return redirect('perfil')
-
-
-def delete_song(request, song_id):
-    return redirect('perfil')
-
-
 class CadastrarUsuarioView(APIView):
     permission_classes = [AllowAny]
 
